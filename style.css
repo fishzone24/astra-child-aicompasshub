@@ -1,0 +1,448 @@
+/*
+ Theme Name:   Astra Child AICompassHub
+ Theme URI:    https://aicompasshub.com/
+ Description:  Astra Child Theme for AICompassHub, styled based on ai-tool-verse design.
+ Author:       Your Name/AI Assistant
+ Author URI:   https://aicompasshub.com/
+ Template:     astra
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  astra-child-aicompasshub
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Globals / Variables
+  ## Colors (Light/Dark Mode)
+  ## Fonts
+# Base Styles
+  ## Body
+  ## Typography
+  ## Links
+  ## Forms (Basic)
+  ## Buttons (Basic)
+# Layout
+  ## Container
+# Components
+  ## Header
+  ## Navigation
+  ## Sidebar
+  ## Footer
+  ## Cards
+# Utilities
+  ## Gradient Text
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Globals / Variables
+--------------------------------------------------------------*/
+
+/* ## Colors (Light/Dark Mode) */
+:root {
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(222.2 84% 4.9%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(222.2 84% 4.9%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(222.2 84% 4.9%);
+    --primary: hsl(210 100% 18%);
+    --primary-foreground: hsl(210 40% 98%);
+    --secondary: hsl(206 100% 31%);
+    --secondary-foreground: hsl(210 40% 98%);
+    --muted: hsl(210 40% 96.1%);
+    --muted-foreground: hsl(215.4 16.3% 46.9%);
+    --accent: hsl(210 100% 12%); /* Very Dark Blue - check usage */
+    --accent-foreground: hsl(222.2 47.4% 11.2%);
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(210 40% 98%);
+    --border: hsl(214.3 31.8% 91.4%);
+    --input: hsl(214.3 31.8% 91.4%);
+    --ring: hsl(206 100% 31%);
+    --radius: 0.5rem;
+
+    --sidebar-background: hsl(0 0% 98%);
+    --sidebar-foreground: hsl(240 5.3% 26.1%);
+    --sidebar-primary: hsl(240 5.9% 10%);
+    --sidebar-primary-foreground: hsl(0 0% 98%);
+    --sidebar-accent: hsl(240 4.8% 95.9%);
+    --sidebar-accent-foreground: hsl(240 5.9% 10%);
+    --sidebar-border: hsl(220 13% 91%);
+
+    /* Astra Specific Overrides (Example - Adjust as needed) */
+    --ast-global-color-0: var(--primary); /* Primary Color */
+    --ast-global-color-1: var(--secondary); /* Secondary Color */
+    --ast-global-color-2: var(--accent); /* Accent Color */
+    --ast-global-color-3: var(--foreground); /* Heading Color */
+    --ast-global-color-4: var(--foreground); /* Body Text Color */
+    --ast-global-color-5: var(--border); /* Border Color */
+    --ast-global-color-6: var(--background); /* Background Color 1 (Site Bg) */
+    --ast-global-color-7: var(--card); /* Background Color 2 (Content Bg) */
+    --ast-global-color-8: var(--popover); /* Background Color 3 (Maybe Popups/Modals) */
+
+    --ast-body-font-weight: 400; /* Default weight */
+    --ast-headings-font-weight: 700; /* Default heading weight */
+}
+
+/* Example for handling Dark Mode in WordPress - might need a body class toggle via JS or WP filter */
+body.dark-mode {
+    --background: hsl(222.2 84% 4.9%);
+    --foreground: hsl(210 40% 98%);
+    --card: hsl(222.2 84% 4.9%);
+    --card-foreground: hsl(210 40% 98%);
+    --popover: hsl(222.2 84% 4.9%);
+    --popover-foreground: hsl(210 40% 98%);
+    --primary: hsl(206 100% 31%);
+    --primary-foreground: hsl(210 40% 98%);
+    --secondary: hsl(210 100% 18%);
+    --secondary-foreground: hsl(210 40% 98%);
+    --muted: hsl(217.2 32.6% 17.5%);
+    --muted-foreground: hsl(215 20.2% 65.1%);
+    --accent: hsl(210 90% 86%); /* Light Blue */
+    --accent-foreground: hsl(222.2 47.4% 11.2%); /* Dark Blue-Gray - Check usage */
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(210 40% 98%);
+    --border: hsl(217.2 32.6% 17.5%);
+    --input: hsl(217.2 32.6% 17.5%);
+    --ring: hsl(206 100% 31%);
+
+    --sidebar-background: hsl(240 5.9% 10%);
+    --sidebar-foreground: hsl(240 4.8% 95.9%);
+    --sidebar-primary: hsl(224.3 76.3% 48%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(240 3.7% 15.9%);
+    --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+    --sidebar-border: hsl(240 3.7% 15.9%);
+
+    /* Astra Specific Overrides for Dark Mode */
+    --ast-global-color-0: var(--primary);
+    --ast-global-color-1: var(--secondary);
+    --ast-global-color-2: var(--accent);
+    --ast-global-color-3: var(--foreground); /* Heading Color */
+    --ast-global-color-4: var(--foreground); /* Body Text Color */
+    --ast-global-color-5: var(--border);
+    --ast-global-color-6: var(--background);
+    --ast-global-color-7: var(--card);
+    --ast-global-color-8: var(--popover);
+}
+
+
+/* ## Fonts */
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground); /* Apply default text color */
+    background-color: var(--background); /* Apply default background color */
+}
+
+/* Basic heading font-family (Astra might handle this, but good to have a base) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit; /* Or specify a heading font if different */
+    color: var(--ast-global-color-3); /* Use Astra's heading color variable */
+}
+
+/*--------------------------------------------------------------
+# Base Styles (Add more specific overrides later)
+--------------------------------------------------------------*/
+
+/* Example: Global Link Color */
+a {
+    color: var(--ast-global-color-0); /* Use primary color for links */
+    text-decoration: none; /* Optional: remove underline */
+}
+
+a:hover {
+    color: var(--ast-global-color-1); /* Use secondary color on hover */
+    text-decoration: underline; /* Optional: add underline on hover */
+}
+
+/* Example: Basic Button Styling (Will need refinement based on Astra's classes) */
+.button, button, input[type="button"], input[type="reset"], input[type="submit"] {
+    background-color: var(--ast-global-color-0);
+    color: var(--primary-foreground); /* Use the specific foreground color */
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
+    background-color: var(--ast-global-color-1);
+    color: var(--secondary-foreground);
+}
+
+/* Example: Basic Input Styling */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    color: var(--foreground);
+    background-color: var(--background);
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    padding: 0.5em 0.8em;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+/* ... add other input types */
+textarea:focus {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 1px var(--ring); /* Simple focus ring */
+    outline: none;
+}
+
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+.ai-gradient-text {
+    background: linear-gradient(to right, hsl(210, 100%, 18%), hsl(206, 100%, 31%)); /* Adjusted based on primary/secondary */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Add署名信息 */
+/* 
+    __   _         _                                  ___    _  _   
+  / _| (_)       | |                                  |__ \  | || |  
+ | |_   _   ___  | |__    ____   ___    _ __     ___     ) | | || |_ 
+ |  _| | | / __| | '_ \  |_  /  / _ \  | '_ \   / _ \   / /  |__   _|
+ | |   | | \__ \ | | | |  / /  | (_) | | | | | |  __/  / /_     | |  
+ |_|   |_| |___/ |_| |_| /___|  \___/  |_| |_|  \___| |____|    |_|  
+                                                                     
+                                                                     
+
+==================================================================
+"此处为项目的名称" 节点一键管理脚本
+脚本作者: fishzone24 - 推特: https://x.com/fishzone24
+此脚本为免费开源脚本，如有问题请提交 issue
+==================================================================
+*/
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+
+/* ## Container */
+/* Apply card background to the main content area if desired, and consistent padding */
+.site-content .ast-container {
+    background-color: var(--card);
+    padding: 2rem; /* Consistent padding */
+    border-radius: var(--radius); /* Optional: Rounded corners for content area */
+    margin-top: 2rem; /* Add some space below header */
+    margin-bottom: 2rem; /* Add some space above footer */
+}
+
+/* Ensure full width layouts don't have the card background unless intended */
+body.ast-page-builder-template .site-content .ast-container,
+body.ast-full-width-template .site-content .ast-container {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+
+/* ## Header */
+#masthead,
+.site-header {
+    background-color: var(--background); /* Or var(--card) if you prefer a card-like header */
+    border-bottom: 1px solid var(--border);
+}
+
+/* Header Colors */
+.site-title a,
+.site-title a:visited,
+.site-header .site-description {
+    color: var(--foreground);
+}
+
+.site-title a:hover {
+    color: var(--primary);
+}
+
+/* ## Navigation */
+.main-header-menu a {
+    color: var(--foreground);
+    font-weight: 500; /* Slightly bolder */
+    border-radius: calc(var(--radius) / 2); /* Subtle rounding for menu items */
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+.main-header-menu a:hover,
+.main-header-menu .menu-item.current-menu-item > a,
+.main-header-menu .menu-item.current-menu-ancestor > a {
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+}
+
+/* Apply radius more broadly */
+img, 
+.wp-block-image img,
+iframe,
+.wp-block-embed iframe {
+    border-radius: var(--radius);
+}
+
+/* ## Footer */
+.site-footer {
+    background-color: var(--background);
+    border-top: 1px solid var(--border);
+    color: var(--muted-foreground);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.site-footer a {
+    color: var(--foreground);
+}
+
+.site-footer a:hover {
+    color: var(--primary);
+}
+
+/* ## Cards (Example for potential blog posts or tool listings) */
+.ast-article-post, 
+.ast-article-page,
+.widget {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Override default Astra widget title styles */
+.widget-title {
+    color: var(--foreground);
+    border-bottom: none; /* Remove Astra default border */
+    margin-bottom: 1rem;
+    font-weight: var(--ast-headings-font-weight);
+}
+
+/* ## Sidebar */
+.secondary {
+    /* Apply sidebar specific colors if a sidebar exists */
+    background-color: var(--sidebar-background);
+    color: var(--sidebar-foreground);
+    border-left: 1px solid var(--sidebar-border); /* Assuming right sidebar */
+    padding: 1.5rem;
+    border-radius: var(--radius);
+}
+
+.secondary .widget {
+    background-color: transparent; /* Widgets inside sidebar shouldn't have double background */
+    border: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.secondary .widget-title {
+    color: var(--sidebar-foreground);
+}
+
+.secondary a {
+    color: var(--sidebar-primary);
+}
+
+.secondary a:hover {
+    color: var(--sidebar-accent-foreground); /* Or adjust hover color */
+}
+
+/* Refine Button Styling - Target Astra button if exists */
+.ast-button, 
+.wp-block-button__link {
+    background-color: var(--ast-global-color-0); /* Use primary */
+    color: var(--primary-foreground);
+    border-radius: var(--radius);
+    padding: 0.6em 1.2em;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+}
+
+.ast-button:hover, 
+.wp-block-button__link:hover {
+    background-color: var(--ast-global-color-1); /* Use secondary */
+    color: var(--secondary-foreground);
+    text-decoration: none;
+}
+
+/* Secondary/Outline Button Style Example */
+.ast-button.ast-outline-button, 
+.wp-block-button.is-style-outline .wp-block-button__link {
+    background-color: transparent;
+    color: var(--ast-global-color-0); /* Primary color text */
+    border: 1px solid var(--ast-global-color-0); /* Primary color border */
+}
+
+.ast-button.ast-outline-button:hover, 
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+    background-color: var(--ast-global-color-0); /* Primary bg on hover */
+    color: var(--primary-foreground);
+    border-color: var(--ast-global-color-0);
+}
+
+/*--------------------------------------------------------------
+# Theme Toggle Button
+--------------------------------------------------------------*/
+.theme-toggle-button {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    cursor: pointer;
+    padding: 0.5rem; /* Adjust size */
+    border-radius: 50%; /* Make it circular */
+    width: 40px; /* Fixed size */
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-left: 1rem; /* Add space next to navigation or logo */
+}
+
+.theme-toggle-button:hover {
+    background-color: var(--muted);
+    border-color: var(--ring);
+}
+
+/* Basic Sun/Moon Icon representation using pseudo-elements */
+/* You might replace this with actual SVG icons for better visuals */
+.theme-toggle-button::before {
+    content: '\f185'; /* FontAwesome sun icon (requires FontAwesome setup) or use CSS shapes */
+    font-family: "Font Awesome 5 Free"; /* Example */
+    font-weight: 900;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+body.dark-mode .theme-toggle-button::before {
+    content: '\f186'; /* FontAwesome moon icon */
+}
+
+/* Hide the actual button text if using icons */
+.theme-toggle-button span {
+    display: none; 
+} 
